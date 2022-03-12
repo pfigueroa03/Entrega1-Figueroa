@@ -1,0 +1,10 @@
+<p>Estamos buscando el: {{project_name}}</p>
+
+{% if proyectos %}
+
+<ul>
+{% for proyecto in proyectos %}
+    <li>{{ proyecto.project_name }}</li>    
+</ul>
+
+{% endif %}
