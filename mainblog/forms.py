@@ -3,7 +3,7 @@ from django import forms
 class ProyectoFormulario(forms.Form):
     project_name = forms.CharField()
     investigation_area = forms.CharField()
-    images = forms.ImageField()
+    #images = forms.ImageField()
     description = forms.CharField(widget=forms.Textarea())
 
 

@@ -1,10 +1,24 @@
-<p>Estamos buscando el: {{project_name}}</p>
+{% extends "core/padre.html" %}
 
-{% if proyectos %}
+{% load static %}
 
-<ul>
-{% for proyecto in proyectos %}
-    <li>{{ proyecto.project_name }}</li>    
-</ul>
+{% block content %}
+    <p>Estamos buscando el proyecto con titulo: {{project_name}}</p>
+    {% if proyectos %}
+        
 
-{% endif %}
+        <ul>
+        {% for proyecto in proyectos %}
+            <li><h2>Proyecto: {{ proyecto.project_name }}</h2></li>
+            <li><p>Descripcion: {{ proyecto.description }}</p></li>  
+        {% endfor %}   
+        </ul>
+
+        {% else %}
+            <p>No hay datos con esa descripcion.</p>
+
+    {% endif %}
+    
+{% endblock %}
+
+                    

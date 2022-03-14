@@ -5,7 +5,7 @@ from django import forms
 class Project(models.Model):
     project_name = models.CharField(max_length=50)
     investigation_area = models.CharField(max_length=50)
-    images = models.ImageField(verbose_name = "Imagen", upload_to="mainblog")
+    #images = models.ImageField(verbose_name = "Imagen", upload_to="mainblog")
     description = models.TextField(verbose_name="Cuerpo de su proyecto")
     created = models.DateTimeField(auto_now_add = True, verbose_name="Fecha de creacion")
     updated = models.DateTimeField(auto_now = True, verbose_name="Fecha de edicion")

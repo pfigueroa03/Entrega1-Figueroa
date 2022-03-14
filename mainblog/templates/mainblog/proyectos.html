@@ -7,13 +7,13 @@
     {% for project in projects %}
     <section class="page-section bg-primary" id="about">
         <div class="container px-4 px-lg-5">
-            <img class="img-project" src="{{project.image.url}}" alt="">
+            <!--<img class="img-project" src="{{project.image.url}}" alt="">-->
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="text-white mt-0">{{project.project_name}}</h2>
                     <hr class="divider divider-light" />
                     <p class="text-white-75 mb-4">{{project.description}}</p>
-                    <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
+                    
                 </div>
             </div>
         </div>
@@ -21,6 +21,9 @@
     {% endfor %}
     <form action="/mainblog/proyectoFormulario">
         <input type="submit" value="Agregar Proyecto" />
+    </form>
+    <form action="/mainblog/buscarProyecto">
+        <input type="submit" value="Buscar Proyecto" />
     </form>
 </body>
 </html>

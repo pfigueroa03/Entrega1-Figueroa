@@ -54,7 +54,7 @@ def editoriales(request):
 def formulario_editorial(request):
     if request.method == "POST":
         form_editorial = PublishingCompanyForm(request.POST)
-        print(form_editorial)
+        #print(form_editorial)
 
         if form_editorial.is_valid:
             informacion = form_editorial.cleaned_data
@@ -71,13 +71,13 @@ def buscar_proyecto(request):
     return render(request, "mainblog/buscarProyecto.html")
 
 def buscar(request):
-    if request.GET["project_name"]:
-        project_name = request.GET["project_name"]
+    if request.GET["nombre"]:
+        project_name = request.GET["nombre"]
         proyectos = Project.objects.filter(project_name__icontains=project_name)
 
-        return render (request, "mainblog/resultadoBusqueda.html", {"project_name":project_name})
+        return render (request, "mainblog/resultadoBusqueda.html", {"proyectos": proyectos, "project_name":project_name})
     
     else:
         respuesta = "No se pasaron datos"
     
-    return HttpResponse(respuesta)
+    return render(request, "mainblog/resultadoBusqueda.html", {"respuesta": respuesta})
