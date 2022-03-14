@@ -1,4 +1,14 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h3>Ingrese una palabra a buscar</h3>
+
 <form action="/mainblog/buscar/" method="'GET">
     <input type="nombre" name="nombre" id="nombre">
     <input type="submit" value="Buscar">
 </form>
+
+{% endblock %}
