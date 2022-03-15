@@ -54,7 +54,7 @@ def editoriales(request):
 def formulario_editorial(request):
     if request.method == "POST":
         form_editorial = PublishingCompanyForm(request.POST)
-        #print(form_editorial)
+        print(form_editorial)
 
         if form_editorial.is_valid:
             informacion = form_editorial.cleaned_data
