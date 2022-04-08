@@ -1,0 +1,13 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <form method="POST"> {% csrf_token %}
+        Confirma que desea borrar la editorial: "{{ object }}"?
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+{% endblock %}

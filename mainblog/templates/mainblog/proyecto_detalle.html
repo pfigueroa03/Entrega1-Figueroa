@@ -1,0 +1,38 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block masthead %}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">Listado de Proyectos cargados por la comunidad</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 mb-5">Encontra el proyecto que sea de tu intereses. En cada vista podras observar el titulo y una breve descripcion del mismo. En caso que lo desees, podes ingresar a "Leer Mas" o al pie de pagina cargar un proyecto propio</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+
+{% block content %}
+<body>
+    <p>Titulo: <i>{{ project.project_name }}</i> </p>
+    <p>Sub-Titulo: <i>{{ project.subtitle }}</i> </p>
+    <p>Area de Estudio: <i>{{ project.investigation_area }}</i></p>
+    <p>Resumen: <i>{{ project.summary }}</i></p>
+    <p>Autor: <i>{{ project.autor }}</i></p>
+    <p>Descripcion del proyecto: <i>{{ project.description|safe }}</i></p>
+    <p>Imagen: <i><img class="img-project" src="{{project.images.url}}" alt=""></i></p>
+    <p>Fecha de publicacion: <i>{{ project.created }}</i></p> 
+    <p>
+        <a href="{% url 'lista_proyectos' %}">Regresar</a>
+    </p> 
+</body>
+
+
+{% endblock %}

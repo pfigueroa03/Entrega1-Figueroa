@@ -1,0 +1,31 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    {% for autor in object_list %}
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="text-white-75 mb-4">{{autor.firstName}}</p>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4">{{autor.lastName}}</p>
+                        <p class="text-white-75 mb-4">
+                            <a href="{% url 'detalle_autor'  autor.id%}" style="color:white">Ver</a>
+                            <a href="{% url 'actualizar_autor' autor.id%}" style="color:white">Editar</a>
+                            <a href="{% url 'eliminar_autor' autor.id%}" style="color:white">Borrar</a>
+                        </p>
+                    
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+    {% endfor %}
+    <a class="btn btn-light btn-xl" href="{% url 'crear_autor' %}">Agregar Autor</a>
+</body>
+</html>
+
+{% endblock %}

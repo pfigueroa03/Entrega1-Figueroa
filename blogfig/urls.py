@@ -25,6 +25,10 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
+    path('pages/', include('mainblog.urls')),
+    path('autor/', include('autor.urls')),
+    path('editorial/', include('editorial.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

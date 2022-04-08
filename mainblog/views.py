@@ -1,72 +1,15 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Project, Autor, PublishingCompany
-from .forms import ProyectoFormulario, AutorForm, PublishingCompanyForm
+from .models import Project
+
 
 # Create your views here.
-def proyectos(request):
-    projects = Project.objects.all()
-    return render (request, 'mainblog/proyectos.html', {'projects':projects})
-
-def proyecto_formulario(request):
-    if request.method == "POST":
-        form_project = ProyectoFormulario(request.POST)
-        print(form_project)
-
-        if form_project.is_valid:
-            informacion = form_project.cleaned_data
-            projects = Project(project_name=informacion['project_name'], investigation_area=informacion["investigation_area"], description=informacion["description"])
-            projects.images = request.FILES.get('images', '')
-            projects.save()
-            return render(request, "mainblog/proyectos.html")
-        
-    else:
-        form_project = ProyectoFormulario()
-        
-    return render(request, "mainblog/proyectoFormulario.html", {'form_project':form_project})
-
-def autores(request):
-    autors = Autor.objects.all()
-    return render (request, 'mainblog/autores.html', {'autors':autors})
-
-def formulario_autores(request):
-    if request.method == "POST":
-        form_autor = AutorForm(request.POST)
-        print(form_autor)
-
-        if form_autor.is_valid:
-            informacion = form_autor.cleaned_data
-            autors = Autor(firstName=informacion['firstName'], lastName=informacion["lastName"], country=informacion["country"])
-            autors.save()
-            return render(request, "mainblog/autores.html")
-        
-    else:
-        form_autor = AutorForm()
-        
-    return render(request, "mainblog/autoresFormulario.html", {'form_autor':form_autor})
-
-def editoriales(request):
-    editorials = PublishingCompany.objects.all()
-    return render (request, 'mainblog/editoriales.html', {'editorials':editorials})
-
-def formulario_editorial(request):
-    if request.method == "POST":
-        form_editorial = PublishingCompanyForm(request.POST)
-        print(form_editorial)
-
-        if form_editorial.is_valid:
-            informacion = form_editorial.cleaned_data
-            editorials = PublishingCompany(publishing_name=informacion['publishing_name'], location=informacion["location"], publication_date=informacion["publication_date"])
-            editorials.save()
-            return render(request, "mainblog/editoriales.html")
-        
-    else:
-        form_editorial = PublishingCompanyForm()
-        
-    return render(request, "mainblog/editorialesFormulario.html", {'form_editorial':form_editorial})
-
 def buscar_proyecto(request):
     return render(request, "mainblog/buscarProyecto.html")
 
@@ -81,3 +24,31 @@ def buscar(request):
         respuesta = "No se pasaron datos"
     
     return render(request, "mainblog/resultadoBusqueda.html", {"respuesta": respuesta})
+
+
+#Vistas basada en Clase
+class ProyectoList(ListView):
+    model=Project
+    template_name = "mainblog/proyecto_lista.html"
+
+
+class ProyectoDetalle(DetailView):
+    model=Project
+    template_name = "mainblog/proyecto_detalle.html"
+
+
+class ProyectoCreacion(LoginRequiredMixin, CreateView):
+    model = Project
+    success_url = "/pages"
+    fields = ['project_name', 'subtitle', 'investigation_area', 'summary', 'autor', 'images', 'description']
+
+
+class ProyectoUpdate(LoginRequiredMixin, UpdateView):
+    model = Project
+    success_url = "/pages"
+    fields = ['project_name', 'subtitle', 'investigation_area', 'summary', 'autor', 'images', 'description']
+
+
+class ProyectoDelete(LoginRequiredMixin, DeleteView):
+    model = Project
+    success_url="/pages"

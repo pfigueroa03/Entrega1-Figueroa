@@ -1,0 +1,20 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block content %}
+    <h3>Informacion de perfil - Usuario: {{request.user.last_name}} {{request.user.first_name}}</h3>
+
+    <p>
+        <li>Nombre: {{ request.user.first_name }}</li>
+        <li>Apellido: {{ request.user.last_name }}</li>
+        <li>Email: {{ request.user.email }}</li>
+        {% if user_data.avatar%}
+            <li><img src="{{ user_data.avatar.url }}" alt="imagen de perfil"></li>
+        {% endif %}
+        <li>Link: {{ request.user.link }}</li>
+    </p>
+
+    <a href={% url 'EditarPerfil' %}>Editar Informacion</a>
+
+{% endblock %}

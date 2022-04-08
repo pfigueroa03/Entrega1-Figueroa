@@ -1,0 +1,16 @@
+{% extends "core/padre.html" %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <p>Nombre de la editorial: <i>{{ editorial.editorial_name }}</i> </p>
+    <p>Ubicacion de la editorial: <i>{{ editorial.location }}</i></p>
+    <p>Fecha de publicacion: <i>{{ editorial.publication_date }}</i></p>   
+    <p>
+        <a href="{% url 'lista_editorial' %}">Regresar</a>
+    </p> 
+</body>
+
+
+{% endblock %}
