@@ -12,7 +12,10 @@
         {% if user_data.avatar%}
             <li>Avatar: <img src="{{ user_data.avatar.url }}" alt="imagen de perfil"></li>
         {% endif %}
-        <li>Link: <a href = {{ user_data.link }}> {{ user_data.link}}</a></li>
+        <li>Link: 
+        {% if user_data.link %}
+            <a href = {{ user_data.link }}> {{ user_data.link}}</a></li>
+        {% endif %}
     </p>
 
     <a href={% url 'EditarPerfil' %}>Editar Informacion</a>
