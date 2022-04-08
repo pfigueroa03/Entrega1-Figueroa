@@ -10,9 +10,9 @@
         <li>Apellido: {{ request.user.last_name }}</li>
         <li>Email: {{ request.user.email }}</li>
         {% if user_data.avatar%}
-            <li><img src="{{ user_data.avatar.url }}" alt="imagen de perfil"></li>
+            <li>Avatar: <img src="{{ user_data.avatar.url }}" alt="imagen de perfil"></li>
         {% endif %}
-        <li>Link: {{ request.user.link }}</li>
+        <li>Link: <a href = {{ user_data.link }}> {{ user_data.link}}</a></li>
     </p>
 
     <a href={% url 'EditarPerfil' %}>Editar Informacion</a>
