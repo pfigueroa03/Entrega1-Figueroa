@@ -22,30 +22,30 @@
 
 {% block content %}
 <body>
-    {% if object_list%}
-        {% for project in object_list %}
         <section class="page-section bg-primary" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <p class="text-white-75 mb-4">{{project.project_name}}</p>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">{{project.summary}}</p>
-                        <img class="img-project" src="{{project.images.url}}" alt="">
-                            <p class="text-white-75 mb-4">
-                                <a href="{% url 'detalle_proyecto'  project.id%}" style="color:white">Leer mas</a>
-                                <a href="{% url 'actualizar_proyecto' project.id%}" style="color:white">Editar</a>
-                                <a href="{% url 'eliminar_proyecto' project.id%}" style="color:white">Borrar</a>
-                            </p>
+                        {% if object_list%}
+                        {% for project in object_list %}
+                            <p class="text-white-75 mb-4">{{project.project_name}}</p>
+                            <hr class="divider divider-light" />
+                            <p class="text-white-75 mb-4">{{project.summary}}</p>
+                            <img class="img-project" src="{{project.images.url}}" alt="">
+                                <p class="text-white-75 mb-4">
+                                    <a href="{% url 'detalle_proyecto'  project.id%}" style="color:white">Leer mas</a>
+                                    <a href="{% url 'actualizar_proyecto' project.id%}" style="color:white">Editar</a>
+                                    <a href="{% url 'eliminar_proyecto' project.id%}" style="color:white">Borrar</a>
+                                </p>
+                            <hr>
+                        {% endfor %}
+                        {% else %}
+                            <p>Todavia no se han informado proyectos. Se el primero desde la opcion <strong>Nuevo Proyecto</strong> al pie de pagina</p>
+                        {% endif %}
                     </div>
                 </div>
-                <hr>
             </div>
         </section>
-        {% endfor %}
-    {% else %}
-        <p>No hay informados proyectos</p>
-    {% endif %}
     <a class="btn btn-light btn-xl" href="{% url 'crear_proyecto' %}">Nuevo Proyecto</a>
 </body>
 </html>
