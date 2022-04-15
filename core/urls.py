@@ -4,7 +4,7 @@ from mainblog import views as mainblog_views
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path('', core_views.pagina_inicio, name="Inicio"),
-    path('about-me/', core_views.about_me, name = "Sobre"),
-    path('contact/', core_views.contact, name="Contacto"),
+    path('', core_views.pagina_inicio, name="inicio"),
+    path('about-me/', core_views.about_me, name = "sobre"),
+    path('contact/', core_views.contact, name="contacto"),
 ]

@@ -27,12 +27,12 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Sobre' %}">Sobre mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Sobre mi</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'lista_proyectos' %}">Proyectos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'lista_autor' %}">Autores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'lista_editorial' %}">Editoriales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto</a></li>
                         {% if not request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Loguearse</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrarse</a></li>
