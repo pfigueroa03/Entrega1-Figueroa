@@ -5,7 +5,7 @@
 {% block content %}
     <h3>Editar informacion - Usuario: {{request.user.username}}</h3>
 
-    <form action={% url 'EditarPerfil' %} method="POST" enctype = 'multipart/form-data'> {% csrf_token %}
+    <form action={% url 'editar_perfil' %} method="POST" enctype = 'multipart/form-data'> {% csrf_token %}
         <table>
             {{ form.as_table}}
         </table>
