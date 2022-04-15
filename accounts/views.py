@@ -88,9 +88,6 @@ def editarPerfil(request):
 
     return render(request, 'accounts/editarperfil.html', {'form': form})
 
-def buscar_url_avatar(user):
-    return Avatar.objects.filter(user=user)[0].imagen.url
-
 @login_required
 def user_info(request):
     user_data, _ = Avatar.objects.get_or_create(user=request.user)
