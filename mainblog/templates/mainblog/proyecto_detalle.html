@@ -21,14 +21,14 @@
 
 {% block content %}
 <body>
-    <p>Titulo: <i>{{ project.project_name }}</i> </p>
-    <p>Sub-Titulo: <i>{{ project.subtitle }}</i> </p>
-    <p>Area de Estudio: <i>{{ project.investigation_area }}</i></p>
-    <p>Resumen: <i>{{ project.summary }}</i></p>
-    <p>Autor: <i>{{ project.autor }}</i></p>
-    <p>Descripcion del proyecto: <i>{{ project.description|safe }}</i></p>
-    <p>Imagen: <i><img class="img-project" src="{{project.images.url}}" alt=""></i></p>
-    <p>Fecha de publicacion: <i>{{ project.created }}</i></p> 
+    <p><strong>Titulo:</strong> <i>{{ project.project_name }}</i> </p>
+    <p><strong>Sub-Titulo:</strong> <i>{{ project.subtitle }}</i> </p>
+    <p><strong>Area de Estudio:</strong> <i>{{ project.investigation_area }}</i></p>
+    <p><strong>Resumen:</strong> <i>{{ project.summary }}</i></p>
+    <p><strong>Autor:</strong> <i>{{ project.autor }}</i></p>
+    <p><strong>Descripcion del proyecto:</strong><i>{{ project.description|safe }}</i></p>
+    <p><strong>Imagen:</strong> <i><img class="img-project" src="{{project.images.url}}" alt="" width="300" height="225"></i></p>
+    <p><strong>Fecha de publicacion:</strong> <i>{{ project.created }}</i></p> 
     <p>
         <a href="{% url 'lista_proyectos' %}">Regresar</a>
     </p> 

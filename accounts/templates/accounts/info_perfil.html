@@ -10,7 +10,7 @@
         <li>Apellido: {{ request.user.last_name }}</li>
         <li>Email: {{ request.user.email }}</li>
         {% if user_data.avatar%}
-            <li>Avatar: <img src="{{ user_data.avatar.url }}" alt="imagen de perfil"></li>
+            <li>Avatar: <img src="{{ user_data.avatar.url }}" alt="imagen de perfil" width="300" height="225"></li>
         {% endif %}
         <li>Link: 
         {% if user_data.link %}
